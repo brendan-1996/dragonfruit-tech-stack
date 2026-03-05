@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0216)file:///C:/Users/brend/AppData/Roaming/Claude/local-agent-mode-sessions/a3409ffb-6bc1-4cc4-8057-6da31dc76057/5992ff50-b77c-4c56-a76c-b1b766f77d3f/local_b89a643a-b87c-48f9-9bf9-87dbf643bc68/outputs/tech-stack-map.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragonfruit Tech Stack</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: linear-gradient(145deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF6B35, #F7C948, #48BB78, #4299E1, #9F7AEA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+  .subtitle { color: #64748b; font-size: 13px; margin: 6px 0 0; text-align: center; }
+  .legend {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin: 12px 0;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: all 0.2s; font-size: 11px;
+    user-select: none;
+  }
+  .legend-item:hover { background: rgba(255,255,255,0.08); }
+  .legend-item.active { background: var(--ring-color-bg); border-color: var(--ring-color); }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .legend-label { color: #cbd5e1; font-weight: 500; }
+  .legend-count { color: #64748b; font-size: 10px; }
+  .svg-wrap { position: relative; }
+  .tool-circle {
+    transition: r 0.25s cubic-bezier(0.4,0,0.2,1), fill 0.25s, stroke-width 0.25s;
+    cursor: pointer;
+  }
+  .tool-icon { pointer-events: none; transition: font-size 0.25s; }
+  .tool-label { pointer-events: none; transition: all 0.25s; }
+  .tool-group { transition: opacity 0.3s; }
+  .tooltip {
+    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: rgba(15,15,35,0.95); backdrop-filter: blur(12px);
+    border-radius: 12px; padding: 14px 20px;
+    min-width: 280px; max-width: 380px; text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.15s ease-out;
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip-icon { font-size: 24px; margin-bottom: 4px; }
+  .tooltip-name { font-weight: 700; font-size: 16px; color: #fff; }
+  .tooltip-cat {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; margin: 4px 0;
+  }
+  .tooltip-desc { color: #94a3b8; font-size: 12px; line-height: 1.5; margin-top: 4px; }
+  .tooltip-ring { margin-top: 6px; font-size: 10px; font-weight: 600; }
+  .ring-circle { transition: all 0.3s; }
+</style>
+</head>
+<body>
+
+<div>
+  <h1>Dragonfruit Tech Stack</h1>
+  <p class="subtitle">Hover over any tool to see details · Inner rings = higher usage across the team</p>
+</div>
+
+<div class="legend" id="legend"><div class="legend-item" style="--ring-color: #FF6B35; --ring-color-bg: #FF6B3525;"><div class="legend-dot" style="background:#FF6B35"></div>
+    <span class="legend-label">Core — Everyone, Daily</span>
+    <span class="legend-count">(6)</span></div><div class="legend-item" style="--ring-color: #F7C948; --ring-color-bg: #F7C94825;"><div class="legend-dot" style="background:#F7C948"></div>
+    <span class="legend-label">Widely Used</span>
+    <span class="legend-count">(6)</span></div><div class="legend-item" style="--ring-color: #48BB78; --ring-color-bg: #48BB7825;"><div class="legend-dot" style="background:#48BB78"></div>
+    <span class="legend-label">Managers / Select Roles</span>
+    <span class="legend-count">(2)</span></div><div class="legend-item" style="--ring-color: #4299E1; --ring-color-bg: #4299E125;"><div class="legend-dot" style="background:#4299E1"></div>
+    <span class="legend-label">Department-Specific</span>
+    <span class="legend-count">(15)</span></div><div class="legend-item" style="--ring-color: #9F7AEA; --ring-color-bg: #9F7AEA25;"><div class="legend-dot" style="background:#9F7AEA"></div>
+    <span class="legend-label">Rarely Used / Niche</span>
+    <span class="legend-count">(11)</span></div></div>
+<div class="svg-wrap">
+  <svg id="viz" width="920" height="920" viewBox="0 0 920 920" style="max-width:100%;height:auto;"><circle cx="460" cy="460" r="420" fill="rgba(159,122,234,0.05)" stroke="#9F7AEA" stroke-width="1" stroke-dasharray="4 4" class="ring-circle"></circle><circle cx="460" cy="460" r="330" fill="rgba(66,153,225,0.06)" stroke="#4299E1" stroke-width="1" stroke-dasharray="4 4" class="ring-circle"></circle><circle cx="460" cy="460" r="240" fill="rgba(72,187,120,0.08)" stroke="#48BB78" stroke-width="1" stroke-dasharray="4 4" class="ring-circle"></circle><circle cx="460" cy="460" r="170" fill="rgba(247,201,72,0.10)" stroke="#F7C948" stroke-width="1" stroke-dasharray="4 4" class="ring-circle"></circle><circle cx="460" cy="460" r="90" fill="rgba(255,107,53,0.12)" stroke="#FF6B35" stroke-width="1" stroke-dasharray="4 4" class="ring-circle"></circle><text x="460" y="452" text-anchor="middle" fill="#FF6B35" font-size="13" font-weight="800" font-family="system-ui,sans-serif">CORE</text><text x="460" y="468" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="system-ui,sans-serif">Everyone · Daily</text><g class="tool-group" data-ring="1"><circle cx="460" cy="370" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="460" y="371" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">💬</text><text x="460" y="406" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Slack</text></g><g class="tool-group" data-ring="1"><circle cx="537.9422863405995" cy="415" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="537.9422863405995" y="416" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">✅</text><text x="537.9422863405995" y="451" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">ClickUp</text></g><g class="tool-group" data-ring="1"><circle cx="537.9422863405995" cy="505" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="537.9422863405995" y="506" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📝</text><text x="537.9422863405995" y="541" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Notion</text></g><g class="tool-group" data-ring="1"><circle cx="460" cy="550" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="460" y="551" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🔐</text><text x="460" y="586" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">LastPass</text></g><g class="tool-group" data-ring="1"><circle cx="382.0577136594005" cy="505" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="382.0577136594005" y="506" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📹</text><text x="382.0577136594005" y="541" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Zoom</text></g><g class="tool-group" data-ring="1"><circle cx="382.0577136594005" cy="415" r="22" fill="#1a1a2e" stroke="#FF6B35" stroke-width="2" class="tool-circle"></circle><text x="382.0577136594005" y="416" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📧</text><text x="382.0577136594005" y="451" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Gmail</text></g><g class="tool-group" data-ring="2"><circle cx="460" cy="290" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="460" y="291" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📨</text><text x="460" y="326" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Missive</text></g><g class="tool-group" data-ring="2"><circle cx="607.2243186433545" cy="375" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="607.2243186433545" y="376" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📁</text><text x="607.2243186433545" y="411" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Google Drive</text></g><g class="tool-group" data-ring="2"><circle cx="607.2243186433545" cy="545" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="607.2243186433545" y="546" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🤖</text><text x="607.2243186433545" y="581" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Claude</text></g><g class="tool-group" data-ring="2"><circle cx="460" cy="630" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="460" y="631" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">💡</text><text x="460" y="666" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">ChatGPT</text></g><g class="tool-group" data-ring="2"><circle cx="312.77568135664546" cy="545" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="312.77568135664546" y="546" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎥</text><text x="312.77568135664546" y="581" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Loom</text></g><g class="tool-group" data-ring="2"><circle cx="312.77568135664546" cy="375" r="22" fill="#1a1a2e" stroke="#F7C948" stroke-width="2" class="tool-circle"></circle><text x="312.77568135664546" y="376" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">▶️</text><text x="312.77568135664546" y="411" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">YouTube Studio</text></g><g class="tool-group" data-ring="3"><circle cx="460" cy="220" r="22" fill="#1a1a2e" stroke="#48BB78" stroke-width="2" class="tool-circle"></circle><text x="460" y="221" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎙️</text><text x="460" y="256" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Grain</text></g><g class="tool-group" data-ring="3"><circle cx="460" cy="700" r="22" fill="#1a1a2e" stroke="#48BB78" stroke-width="2" class="tool-circle"></circle><text x="460" y="701" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📅</text><text x="460" y="736" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">TidyCal</text></g><g class="tool-group" data-ring="4"><circle cx="460" cy="130" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="460" y="131" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎬</text><text x="460" y="166" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Frame.io</text></g><g class="tool-group" data-ring="4"><circle cx="594.223092215014" cy="158.52999897794172" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="594.223092215014" y="159.52999897794172" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎨</text><text x="594.223092215014" y="194.52999897794172" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Freepik</text></g><g class="tool-group" data-ring="4"><circle cx="705.2377924075402" cy="239.1868999015768" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="705.2377924075402" y="240.1868999015768" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">✂️</text><text x="705.2377924075402" y="275.1868999015768" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Descript</text></g><g class="tool-group" data-ring="4"><circle cx="773.8486503774006" cy="358.02439185626736" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="773.8486503774006" y="359.02439185626736" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🐴</text><text x="773.8486503774006" y="394.02439185626736" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Misterhorse</text></g><g class="tool-group" data-ring="4"><circle cx="788.1922254715303" cy="494.49439287832564" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="788.1922254715303" y="495.49439287832564" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">⚡</text><text x="788.1922254715303" y="530.4943928783257" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Make</text></g><g class="tool-group" data-ring="4"><circle cx="745.7883832488648" cy="625" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="745.7883832488648" y="626" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🔗</text><text x="745.7883832488648" y="661" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Zapier</text></g><g class="tool-group" data-ring="4"><circle cx="653.9691332565161" cy="726.9756081437326" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="653.9691332565161" y="727.9756081437326" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📄</text><text x="653.9691332565161" y="762.9756081437326" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Nusii</text></g><g class="tool-group" data-ring="4"><circle cx="528.6108579698605" cy="782.7887082421558" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="528.6108579698605" y="783.7887082421558" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎞️</text><text x="528.6108579698605" y="818.7887082421558" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Storyblocks</text></g><g class="tool-group" data-ring="4"><circle cx="391.3891420301395" cy="782.7887082421558" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="391.3891420301395" y="783.7887082421558" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📦</text><text x="391.3891420301395" y="818.7887082421558" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Dropbox</text></g><g class="tool-group" data-ring="4"><circle cx="266.0308667434839" cy="726.9756081437326" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="266.0308667434839" y="727.9756081437326" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎵</text><text x="266.0308667434839" y="762.9756081437326" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Artlist</text></g><g class="tool-group" data-ring="4"><circle cx="174.2116167511353" cy="625.0000000000001" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="174.2116167511353" y="626.0000000000001" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🗣️</text><text x="174.2116167511353" y="661.0000000000001" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">ElevenLabs</text></g><g class="tool-group" data-ring="4"><circle cx="131.8077745284698" cy="494.49439287832587" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="131.8077745284698" y="495.49439287832587" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📤</text><text x="131.8077745284698" y="530.4943928783259" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">WeTransfer</text></g><g class="tool-group" data-ring="4"><circle cx="146.1513496225993" cy="358.0243918562674" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="146.1513496225993" y="359.0243918562674" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🔟</text><text x="146.1513496225993" y="394.0243918562674" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">1OF10.COM</text></g><g class="tool-group" data-ring="4"><circle cx="214.76220759246002" cy="239.18689990157668" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="214.76220759246002" y="240.18689990157668" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📊</text><text x="214.76220759246002" y="275.1868999015767" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Metricool</text></g><g class="tool-group" data-ring="4"><circle cx="325.77690778498595" cy="158.52999897794166" r="22" fill="#1a1a2e" stroke="#4299E1" stroke-width="2" class="tool-circle"></circle><text x="325.77690778498595" y="159.52999897794166" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📈</text><text x="325.77690778498595" y="194.52999897794166" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">ViewStats</text></g><g class="tool-group" data-ring="5"><circle cx="460" cy="40" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle" style="filter: none;"></circle><text x="460" y="41" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">💌</text><text x="460" y="76" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Cardly</text></g><g class="tool-group" data-ring="5"><circle cx="687.069143331351" cy="106.67351621090393" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="687.069143331351" y="107.67351621090393" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎭</text><text x="687.069143331351" y="142.67351621090393" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Typecast</text></g><g class="tool-group" data-ring="5"><circle cx="842.0454380488977" cy="285.52569453920773" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="842.0454380488977" y="286.52569453920773" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎶</text><text x="842.0454380488977" y="321.52569453920773" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Epidemic</text></g><g class="tool-group" data-ring="5"><circle cx="875.7250055899917" cy="519.7722320747797" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="875.7250055899917" y="520.7722320747797" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🖼️</text><text x="875.7250055899917" y="555.7722320747797" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Canva</text></g><g class="tool-group" data-ring="5"><circle cx="777.4148212287885" cy="735.0415082570198" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="777.4148212287885" y="736.0415082570198" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">📺</text><text x="777.4148212287885" y="771.0415082570198" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Vimeo</text></g><g class="tool-group" data-ring="5"><circle cx="578.3276738734005" cy="862.9870489180889" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="578.3276738734005" y="863.9870489180889" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🧩</text><text x="578.3276738734005" y="898.9870489180889" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Setapp</text></g><g class="tool-group" data-ring="5"><circle cx="341.6723261265996" cy="862.9870489180889" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="341.6723261265996" y="863.9870489180889" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🎓</text><text x="341.6723261265996" y="898.9870489180889" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Skool</text></g><g class="tool-group" data-ring="5"><circle cx="142.5851787712116" cy="735.0415082570198" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="142.5851787712116" y="736.0415082570198" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🚀</text><text x="142.5851787712116" y="771.0415082570198" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">GoHighLevel</text></g><g class="tool-group" data-ring="5"><circle cx="44.274994410008276" cy="519.7722320747798" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="44.274994410008276" y="520.7722320747798" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🏢</text><text x="44.274994410008276" y="555.7722320747798" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">The Org</text></g><g class="tool-group" data-ring="5"><circle cx="77.95456195110222" cy="285.52569453920785" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="77.95456195110222" y="286.52569453920785" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🌐</text><text x="77.95456195110222" y="321.52569453920785" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Webflow</text></g><g class="tool-group" data-ring="5"><circle cx="232.93085666864908" cy="106.67351621090387" r="22" fill="#1a1a2e" stroke="#9F7AEA" stroke-width="2" class="tool-circle"></circle><text x="232.93085666864908" y="107.67351621090387" text-anchor="middle" dominant-baseline="central" font-size="15" class="tool-icon">🔍</text><text x="232.93085666864908" y="142.67351621090387" text-anchor="middle" fill="#94a3b8" font-size="10" font-weight="500" font-family="system-ui,sans-serif" class="tool-label">Oxylabs</text></g></svg>
+  <div class="tooltip" id="tooltip" style="border-color: rgba(159, 122, 234, 0.25); box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 32px, rgba(159, 122, 234, 0.082) 0px 0px 20px;">
+    <div class="tooltip-icon" id="tt-icon">💌</div>
+    <div class="tooltip-name" id="tt-name">Cardly</div>
+    <div class="tooltip-cat" id="tt-cat" style="background: rgba(237, 100, 166, 0.125); color: rgb(237, 100, 166);">Culture</div>
+    <div class="tooltip-desc" id="tt-desc">Physical cards for appreciation and milestones</div>
+    <div class="tooltip-ring" id="tt-ring" style="color: rgb(159, 122, 234);">Ring 5 · Rarely Used / Niche</div>
+  </div>
+</div>
+
+<script>
+const RINGS = [
+  { id:1, label:"Core — Everyone, Daily", color:"#FF6B35", bg:"rgba(255,107,53,0.12)", r:90 },
+  { id:2, label:"Widely Used", color:"#F7C948", bg:"rgba(247,201,72,0.10)", r:170 },
+  { id:3, label:"Managers / Select Roles", color:"#48BB78", bg:"rgba(72,187,120,0.08)", r:240 },
+  { id:4, label:"Department-Specific", color:"#4299E1", bg:"rgba(66,153,225,0.06)", r:330 },
+  { id:5, label:"Rarely Used / Niche", color:"#9F7AEA", bg:"rgba(159,122,234,0.05)", r:420 },
+];
+
+const TOOLS = [
+  {name:"Slack",ring:1,icon:"💬",cat:"Communication",desc:"Fast internal communication and lightweight coordination"},
+  {name:"ClickUp",ring:1,icon:"✅",cat:"Project Mgmt",desc:"Source of truth for tasks, owners, deadlines, and statuses"},
+  {name:"Notion",ring:1,icon:"📝",cat:"Knowledge Base",desc:"SOPs, policies, templates, tutorials, and long-term reference"},
+  {name:"LastPass",ring:1,icon:"🔐",cat:"Security",desc:"Password manager for secure access to shared accounts"},
+  {name:"Zoom",ring:1,icon:"📹",cat:"Meetings",desc:"Video meetings for syncs, client calls, and All Hands"},
+  {name:"Gmail",ring:1,icon:"📧",cat:"Email",desc:"Official email for internal ops, hiring, and client correspondence"},
+  {name:"Missive",ring:2,icon:"📨",cat:"Email",desc:"Shared inbox + collaborative email for hiring and ops"},
+  {name:"Google Drive",ring:2,icon:"📁",cat:"Storage",desc:"Central file storage for docs, templates, and deliverables"},
+  {name:"Claude",ring:2,icon:"🤖",cat:"AI",desc:"AI assistant for drafting, summarizing, and brainstorming"},
+  {name:"ChatGPT",ring:2,icon:"💡",cat:"AI",desc:"AI assistant for SOPs, templates, and operational workflows"},
+  {name:"Loom",ring:2,icon:"🎥",cat:"Async Video",desc:"Quick async video updates, tutorials, and walkthroughs"},
+  {name:"YouTube Studio",ring:2,icon:"▶️",cat:"Publishing",desc:"Publishing hub for uploads, metadata, and performance"},
+  {name:"Grain",ring:3,icon:"🎙️",cat:"Meetings",desc:"Meeting recording, highlights, and searchable notes"},
+  {name:"TidyCal",ring:3,icon:"📅",cat:"Scheduling",desc:"Booking interviews, meetings, and coordination calls"},
+  {name:"Frame.io",ring:4,icon:"🎬",cat:"Post-Production",desc:"Centralized review for video drafts and version control"},
+  {name:"Freepik",ring:4,icon:"🎨",cat:"Creative",desc:"Asset library for graphics, icons, and backgrounds"},
+  {name:"Descript",ring:4,icon:"✂️",cat:"Post-Production",desc:"Audio/video editing, transcripts, and captions"},
+  {name:"Misterhorse",ring:4,icon:"🐴",cat:"Post-Production",desc:"Motion graphics presets for faster editing workflows"},
+  {name:"Make",ring:4,icon:"⚡",cat:"Automation",desc:"Automation platform connecting tools and reducing manual work"},
+  {name:"Zapier",ring:4,icon:"🔗",cat:"Automation",desc:"Lightweight automations for simpler workflows"},
+  {name:"Nusii",ring:4,icon:"📄",cat:"Sales",desc:"Proposal creation for client proposals and branded docs"},
+  {name:"Storyblocks",ring:4,icon:"🎞️",cat:"Creative",desc:"Stock footage, audio, and assets for creative deliverables"},
+  {name:"Dropbox",ring:4,icon:"📦",cat:"Storage",desc:"File sharing for specific workflows or external collab"},
+  {name:"Artlist",ring:4,icon:"🎵",cat:"Post-Production",desc:"Music and sound effects for video production"},
+  {name:"ElevenLabs",ring:4,icon:"🗣️",cat:"Post-Production",desc:"AI voice generation for content workflows"},
+  {name:"WeTransfer",ring:4,icon:"📤",cat:"File Transfer",desc:"Large file transfers for production assets"},
+  {name:"1OF10.COM",ring:4,icon:"🔟",cat:"Creative",desc:"Creative resource for the creative department"},
+  {name:"Metricool",ring:4,icon:"📊",cat:"Analytics",desc:"Social media analytics and scheduling"},
+  {name:"ViewStats",ring:4,icon:"📈",cat:"Analytics",desc:"YouTube analytics and channel performance tracking"},
+  {name:"Cardly",ring:5,icon:"💌",cat:"Culture",desc:"Physical cards for appreciation and milestones"},
+  {name:"Typecast",ring:5,icon:"🎭",cat:"Post-Production",desc:"AI voice and virtual actors for content"},
+  {name:"Epidemic",ring:5,icon:"🎶",cat:"Post-Production",desc:"Royalty-free music for video production"},
+  {name:"Canva",ring:5,icon:"🖼️",cat:"Creative",desc:"Quick design tool for graphics and social content"},
+  {name:"Vimeo",ring:5,icon:"📺",cat:"Video",desc:"Video hosting for specific delivery workflows"},
+  {name:"Setapp",ring:5,icon:"🧩",cat:"Utilities",desc:"App subscription bundle for Mac productivity tools"},
+  {name:"Skool",ring:5,icon:"🎓",cat:"Community",desc:"Community platform for courses and engagement"},
+  {name:"GoHighLevel",ring:5,icon:"🚀",cat:"Marketing",desc:"Marketing automation and CRM platform"},
+  {name:"The Org",ring:5,icon:"🏢",cat:"HR",desc:"Public org chart and company profile"},
+  {name:"Webflow",ring:5,icon:"🌐",cat:"Web",desc:"Website design and hosting platform"},
+  {name:"Oxylabs",ring:5,icon:"🔍",cat:"Data",desc:"Web scraping and data collection infrastructure"},
+];
+
+const CAT_COLORS = {
+  Communication:"#E53E3E","Project Mgmt":"#DD6B20","Knowledge Base":"#D69E2E",
+  Security:"#718096",Meetings:"#38A169",Email:"#3182CE",Storage:"#805AD5",
+  AI:"#00B5D8","Async Video":"#ED64A6",Publishing:"#E53E3E",Scheduling:"#38A169",
+  "Post-Production":"#DD6B20",Creative:"#D69E2E",Automation:"#805AD5",
+  Sales:"#3182CE","File Transfer":"#718096",Analytics:"#00B5D8",Culture:"#ED64A6",
+  Video:"#E53E3E",Utilities:"#718096",Community:"#38A169",Marketing:"#DD6B20",
+  HR:"#805AD5",Web:"#3182CE",Data:"#718096"
+};
+
+const SVG_NS = "http://www.w3.org/2000/svg";
+const C = 460; // center
+let selectedRing = null;
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function pos(i, total, radius) {
+  const a = -Math.PI/2 + (2*Math.PI*i)/total;
+  return { x: C + radius*Math.cos(a), y: C + radius*Math.sin(a) };
+}
+
+// Build legend
+const legend = document.getElementById("legend");
+RINGS.forEach(ring => {
+  const count = TOOLS.filter(t => t.ring === ring.id).length;
+  const item = document.createElement("div");
+  item.className = "legend-item";
+  item.style.setProperty("--ring-color", ring.color);
+  item.style.setProperty("--ring-color-bg", ring.color + "25");
+  item.innerHTML = `<div class="legend-dot" style="background:${ring.color}"></div>
+    <span class="legend-label">${ring.label}</span>
+    <span class="legend-count">(${count})</span>`;
+  item.onclick = () => {
+    selectedRing = selectedRing === ring.id ? null : ring.id;
+    legend.querySelectorAll(".legend-item").forEach((el, idx) => {
+      el.classList.toggle("active", selectedRing === RINGS[idx].id);
+    });
+    updateVisibility();
+  };
+  legend.appendChild(item);
+});
+
+// Build SVG
+const svg = document.getElementById("viz");
+
+// Draw ring circles (back to front)
+const ringEls = {};
+[...RINGS].reverse().forEach(ring => {
+  const c = el("circle", {
+    cx:C, cy:C, r:ring.r, fill:ring.bg,
+    stroke:ring.color, "stroke-width":"1", "stroke-dasharray":"4 4"
+  }, svg);
+  c.classList.add("ring-circle");
+  ringEls[ring.id] = c;
+});
+
+// Center label
+el("text", { x:C, y:C-8, "text-anchor":"middle", fill:"#FF6B35",
+  "font-size":"13", "font-weight":"800", "font-family":"system-ui,sans-serif" }, svg).textContent = "CORE";
+el("text", { x:C, y:C+8, "text-anchor":"middle", fill:"#94a3b8",
+  "font-size":"9", "font-family":"system-ui,sans-serif" }, svg).textContent = "Everyone · Daily";
+
+// Draw tools
+const toolGroups = [];
+RINGS.forEach(ring => {
+  const ringTools = TOOLS.filter(t => t.ring === ring.id);
+  ringTools.forEach((tool, i) => {
+    const p = pos(i, ringTools.length, ring.r);
+    const g = el("g", {}, svg);
+    g.classList.add("tool-group");
+    g.dataset.ring = ring.id;
+
+    const circle = el("circle", {
+      cx:p.x, cy:p.y, r:"22", fill:"#1a1a2e",
+      stroke:ring.color, "stroke-width":"2"
+    }, g);
+    circle.classList.add("tool-circle");
+
+    const icon = el("text", {
+      x:p.x, y:p.y+1, "text-anchor":"middle", "dominant-baseline":"central",
+      "font-size":"15"
+    }, g);
+    icon.classList.add("tool-icon");
+    icon.textContent = tool.icon;
+
+    const label = el("text", {
+      x:p.x, y:p.y+36, "text-anchor":"middle", fill:"#94a3b8",
+      "font-size":"10", "font-weight":"500", "font-family":"system-ui,sans-serif"
+    }, g);
+    label.classList.add("tool-label");
+    label.textContent = tool.name;
+
+    g.addEventListener("mouseenter", () => showTooltip(tool, ring, circle, icon, label));
+    g.addEventListener("mouseleave", () => hideTooltip(circle, icon, label, ring));
+
+    toolGroups.push({ g, ring: ring.id });
+  });
+});
+
+const tooltip = document.getElementById("tooltip");
+
+function showTooltip(tool, ring, circle, icon, label) {
+  circle.setAttribute("r", "28");
+  circle.setAttribute("fill", ring.color);
+  circle.setAttribute("stroke-width", "3");
+  circle.style.filter = `drop-shadow(0 0 12px ${ring.color}80)`;
+  icon.setAttribute("font-size", "18");
+  label.setAttribute("fill", "#fff");
+  label.setAttribute("font-weight", "700");
+
+  document.getElementById("tt-icon").textContent = tool.icon;
+  document.getElementById("tt-name").textContent = tool.name;
+  const cat = document.getElementById("tt-cat");
+  cat.textContent = tool.cat;
+  cat.style.background = (CAT_COLORS[tool.cat] || "#718096") + "20";
+  cat.style.color = CAT_COLORS[tool.cat] || "#718096";
+  document.getElementById("tt-desc").textContent = tool.desc;
+  const ringLabel = document.getElementById("tt-ring");
+  ringLabel.textContent = `Ring ${tool.ring} · ${ring.label}`;
+  ringLabel.style.color = ring.color;
+  tooltip.style.borderColor = ring.color + "40";
+  tooltip.style.boxShadow = `0 8px 32px rgba(0,0,0,0.5), 0 0 20px ${ring.color}15`;
+  tooltip.classList.add("visible");
+}
+
+function hideTooltip(circle, icon, label, ring) {
+  circle.setAttribute("r", "22");
+  circle.setAttribute("fill", "#1a1a2e");
+  circle.setAttribute("stroke-width", "2");
+  circle.style.filter = "none";
+  icon.setAttribute("font-size", "15");
+  label.setAttribute("fill", "#94a3b8");
+  label.setAttribute("font-weight", "500");
+  tooltip.classList.remove("visible");
+}
+
+function updateVisibility() {
+  toolGroups.forEach(({ g, ring }) => {
+    g.style.opacity = (selectedRing === null || selectedRing === ring) ? "1" : "0.15";
+  });
+  RINGS.forEach(ring => {
+    const c = ringEls[ring.id];
+    const active = selectedRing === null || selectedRing === ring.id;
+    c.style.opacity = active ? "1" : "0.3";
+    c.setAttribute("stroke-width", selectedRing === ring.id ? "2" : "1");
+    c.setAttribute("stroke-dasharray", selectedRing === ring.id ? "none" : "4 4");
+  });
+}
+</script>
+
+</body></html>
